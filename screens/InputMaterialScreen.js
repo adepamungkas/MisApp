@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { Caption, DataTable, Title } from 'react-native-paper';
 import Service from './data/Service';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { Picker } from '@react-native-picker/picker';
 import moment from 'moment';
 var { width, height } = Dimensions.get('window');
 export default class InputMaterialScreen extends Component {
@@ -38,7 +39,7 @@ export default class InputMaterialScreen extends Component {
     vendor: "",
     trademark: "",
     description: "",
-    type: "Raw",
+    type: "",
     inputBy: ""
   }
   componentDidMount() {
@@ -57,6 +58,10 @@ export default class InputMaterialScreen extends Component {
   }
 
   handleCreate = () => {
+    const { navigation } = this.props;
+    
+        
+
     let params = {
       Color: this.state.color,
       Date: moment(this.state.selectedDate).format(),
@@ -71,14 +76,18 @@ export default class InputMaterialScreen extends Component {
     }
     const myObjStr = JSON.stringify(params);
 
-    Alert.alert("params", myObjStr)
-    // this.service
-    //   .createMaterial(params)
-    //   .then((result) => {
-    //     Alert.alert("Suksees")
-    //     console.log(result);
-    //     // this.setState({ activePage: result.page, total: result.total, tableData: result.data })
-    //   });
+    this.service
+      .createMaterial(params)
+      .then((result) => {
+        Alert.alert(
+          "Success",
+          "data has ben succesfully created",
+          [
+            { text: "OK", onPress: () => this.props.navigation.navigate("Home") }
+          ]
+        );
+      
+      });
   }
   showDatepicker = (value) => {
     this.setState({ isShowDate: value })
@@ -91,10 +100,10 @@ export default class InputMaterialScreen extends Component {
 
     return (
       <ScrollView style={styles.scrollView}>
-      <View style={styles.container}>
-      
+        <View style={styles.container}>
+
           <View>
-          <Text>Material</Text>  
+            <Text>Material</Text>
           </View>
           <View style={styles.inputContainer}>
             <TextInput style={styles.inputs}
@@ -102,11 +111,11 @@ export default class InputMaterialScreen extends Component {
               keyboardType="default"
               underlineColorAndroid='transparent'
               onChangeText={(name) => this.setState({ name })} />
-           
+
           </View>
-          <Text>Color</Text>  
+          <Text>Color</Text>
           <View style={styles.inputContainer}>
-         
+
             <TextInput style={styles.inputs}
               placeholder="Color"
               keyboardType="default"
@@ -114,7 +123,7 @@ export default class InputMaterialScreen extends Component {
               onChangeText={(color) => this.setState({ color })} />
 
           </View>
-          <Text>Size</Text>  
+          <Text>Size</Text>
           <View style={styles.inputContainer}>
             <TextInput style={styles.inputs}
               placeholder="Size"
@@ -123,7 +132,7 @@ export default class InputMaterialScreen extends Component {
               onChangeText={(size) => this.setState({ size })} />
 
           </View>
-          <Text>Vendor</Text>  
+          <Text>Vendor</Text>
           <View style={styles.inputContainer}>
             <TextInput style={styles.inputs}
               placeholder="Vendor"
@@ -132,7 +141,7 @@ export default class InputMaterialScreen extends Component {
               onChangeText={(vendor) => this.setState({ vendor })} />
 
           </View>
-          <Text>Trademark</Text>  
+          <Text>Trademark</Text>
           <View style={styles.inputContainer}>
             <TextInput style={styles.inputs}
               placeholder="Trademark"
@@ -152,7 +161,7 @@ export default class InputMaterialScreen extends Component {
         </View> */}
 
 
-<Text>Date</Text>  
+          <Text>Date</Text>
           <View>
             <TouchableOpacity style={styles.inputContainer} onPress={() => {
               this.showDatepicker(true)
@@ -176,7 +185,7 @@ export default class InputMaterialScreen extends Component {
           />) : (<TouchableOpacity></TouchableOpacity>)}
 
           <View>
-          <Text>Description</Text>  
+            <Text>Description</Text>
           </View>
           <View style={styles.inputContainer}>
             <TextInput style={styles.inputsTexarea}
@@ -188,12 +197,29 @@ export default class InputMaterialScreen extends Component {
               onChangeText={(description) => this.setState({ description })} />
 
           </View>
+          <View>
+            <Text>Choose type</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <Picker
+              style={styles.inputs}
+              selectedValue={this.state.type}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({type:itemValue})
+           
+              }>
+              <Picker.Item label="raw" value="raw" />
+              <Picker.Item label="semi finish" value="semi finish" />
+              <Picker.Item label="finish" value="finish" />
+            </Picker>
+
+          </View>
 
           <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.handleCreate()}>
             <Text style={styles.loginText}>Submit</Text>
           </TouchableOpacity>
-       
-      </View>
+
+        </View>
       </ScrollView>
     );
   }
@@ -205,10 +231,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-  //  alignItems: 'center',
+    //  alignItems: 'center',
     // backgroundColor: '#DCDCDC',
-     marginLeft:10,
-     marginRight:10,
+    marginLeft: 10,
+    marginRight: 10,
   },
 
   buttonDate: {
@@ -264,7 +290,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
-   // width: 300,
+    // width: 300,
     borderRadius: 5,
     backgroundColor: 'transparent'
   },

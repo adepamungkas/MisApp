@@ -6,6 +6,7 @@ import {
   View,
   TextInput,
   Button,
+  TouchableOpacity,
   TouchableHighlight,
   Image,
   Alert

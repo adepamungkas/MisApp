@@ -24,38 +24,17 @@ class HomeScreen extends Component {
         super(props);
         this.state = {
             visible: true,
-            // branchName: getBranchName(),
-            // facilities: getFacilities(),
-            // priceMin: getPrice_min(),
-            // priceMax: getPrice_max(),
-            // operational_hours: getOperational_hours(),
-            // rating: getRating_score(),
             expanded: true,
-            // data: [
-            //     { id: 1, title: "Option 1", image: "https://img.icons8.com/color/70/000000/cottage.png" },
-            //     { id: 1, title: "Option 2", image: "https://img.icons8.com/color/70/000000/administrator-male.png" },
-            //     { id: 2, title: "Option 3", image: "https://img.icons8.com/color/70/000000/filled-like.png" },
-            //     { id: 3, title: "Option 4", image: "https://img.icons8.com/color/70/000000/facebook-like.png" },
-            //     { id: 4, title: "Option 5", image: "https://img.icons8.com/color/70/000000/shutdown.png" },
-            //     { id: 5, title: "Option 6", image: "https://img.icons8.com/color/70/000000/traffic-jam.png" },
-            //     { id: 6, title: "Option 7", image: "https://img.icons8.com/dusk/70/000000/visual-game-boy.png" },
-            //     { id: 8, title: "Option 8", image: "https://img.icons8.com/flat_round/70/000000/cow.png" },
-            //     { id: 9, title: "Option 9", image: "https://img.icons8.com/color/70/000000/coworking.png" },
-            //     { id: 9, title: "Option 10", image: "https://img.icons8.com/nolan/70/000000/job.png" },
-            // ]
-
             data: [
-                { id: 1, title: "Home", color: "#87CEEB",route:"Home", members: 6, image: "https://img.icons8.com/office/70/000000/home-page.png" },
-                { id: 2, title: "Material", color: "#00FFFF",route:"InputMaterial", members: 8, image: "https://img.icons8.com/dusk/70/000000/checklist.png" },
-                { id: 3, title: "Report", color: "#191970",route:"ListMaterial", members: 45, image: "https://img.icons8.com/color/70/000000/to-do.png" },
-                { id: 4, title: "Chart", color: "#20B2AA",route:"InputMaterial", members: 23, image: "https://img.icons8.com/dusk/70/000000/globe-earth.png" },
-                { id: 5, title: "Profile", color: "#FF4500",route:"Profile", members: 8, image: "https://img.icons8.com/color/70/000000/name.png" },
-                { id: 6, title: "Users", color: "#FF69B4",route:"InputMaterial", members: 6, image: "https://img.icons8.com/color/70/000000/groups.png" },
-                { id: 7, title: "Training", color: "#00BFFF",route:"InputMaterial", members: 7, image: "https://img.icons8.com/color/70/000000/classroom.png" },
-                { id: 8, title: "Family Gathering",route:"InputMaterial", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/70/000000/family.png" },
-               
-               
-                
+                // { id: 1, title: "Home", color: "#87CEEB",route:"Home", members: 6, image: "https://img.icons8.com/color/48/000000/home.png" },
+                { id: 1, title: "Material", color: "#00FFFF",route:"InputMaterial", members: 8, image: "https://img.icons8.com/dusk/70/000000/checklist.png" },
+                { id: 2, title: "Report", color: "#191970",route:"ListMaterial", members: 45, image: "https://img.icons8.com/color/70/000000/to-do.png" },
+                { id: 3, title: "Chart", color: "#20B2AA",route:"InputMaterial", members: 23, image: "https://img.icons8.com/color/100/000000/picture.png" },
+                { id: 4, title: "Profile", color: "#FF4500",route:"Profile", members: 8, image: "https://img.icons8.com/color/70/000000/name.png" },
+                { id: 5, title: "News",route:"InputMaterial", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/48/000000/news.png" },
+                { id: 6, title: "Suggestion Box",route:"InputMaterial", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/48/000000/idea.png" },
+                { id: 7, title: "Users", color: "#FF69B4",route:"InputMaterial", members: 6, image: "https://img.icons8.com/color/70/000000/groups.png" },
+                { id: 8, title: "Training", color: "#00BFFF",route:"InputMaterial", members: 7, image: "https://img.icons8.com/color/70/000000/classroom.png" },
                
             ],
             
@@ -64,7 +43,7 @@ class HomeScreen extends Component {
     }
     clickEventListener =(item) =>{
         const { navigation } = this.props;
-    // console.log("navigation",navigation)
+    
         this.props.navigation.push(item.route)
         //Alert.alert(item.title)
     }
