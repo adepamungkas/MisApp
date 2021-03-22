@@ -1,0 +1,1 @@
+export const BASE_URL = "http://adepamungkas.com:8080/api/v1/"
