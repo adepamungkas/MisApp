@@ -4,6 +4,7 @@ const HEADERS = { 'Content-Type': 'application/json', accept: 'application/json'
 class Service {
 
     createMaterial = ( payload) => {
+        
         let url = `${CONST.BASE_URL}materials/`;
         return axios.post(url, payload, { headers: HEADERS })
             .then((result) => {

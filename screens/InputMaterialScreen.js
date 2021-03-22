@@ -1,11 +1,12 @@
 
-import { FlatList, View, Text, Button, Image, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { FlatList, View, Text, Button, Image, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert ,Dimensions} from 'react-native';
 import { Card } from 'react-native-paper';
 import React, { Component } from 'react';
 import { Caption, DataTable, Title } from 'react-native-paper';
 import Service from './data/Service';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
+var {width, height} = Dimensions.get('window');
 export default class InputMaterialScreen extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +25,14 @@ export default class InputMaterialScreen extends Component {
       { id: 5, image: "https://bootdey.com/img/Content/avatar/avatar1.png", username: "johndoe5" },
       { id: 6, image: "https://bootdey.com/img/Content/avatar/avatar6.png", username: "johndoe6" },
     ],
-    isShowDate: false
+    isShowDate: false,
+    Size: 0,
+    name: "",
+    color: "",
+    vendor: "",
+    trademark: "",
+    description: "",
+    type: "Raw"
   }
   componentDidMount() {
     this.setData();
@@ -38,14 +46,28 @@ export default class InputMaterialScreen extends Component {
     };
 
     this.setState({ loadingData: true })
-    // this.service
-    //   .createMaterial(params)
-    //   .then((result) => {
-    //     console.log(result);
-    //     // this.setState({ activePage: result.page, total: result.total, tableData: result.data })
-    //   });
+
   }
 
+  handleCreate = () => {
+    let params = {
+      Name: this.state.name,
+      Trademark: this.state.Trademark,
+      Color: this.state.Color,
+      Date: moment(this.state.selectedDate).format(),
+      Description: this.state.description,
+      Size: this.state.Size,
+      Vendor: this.state.Vendor,
+      type: this.state.type
+    }
+    this.service
+      .createMaterial(params)
+      .then((result) => {
+        Alert.alert("Suksees")
+        console.log(result);
+        // this.setState({ activePage: result.page, total: result.total, tableData: result.data })
+      });
+  }
   showDatepicker = (value) => {
     this.setState({ isShowDate: value })
   }
@@ -57,6 +79,7 @@ export default class InputMaterialScreen extends Component {
 
     return (
       <View style={styles.container}>
+         <ScrollView style={styles.scrollView}>
         <Image style={styles.bgImage} source={{ uri: "https://lorempixel.com/900/1400/nightlife/2/" }} />
         <View style={styles.inputContainer}>
           <TextInput style={styles.inputs}
@@ -112,33 +135,29 @@ export default class InputMaterialScreen extends Component {
           <Image style={styles.inputIcon} source={{uri: 'https://img.icons8.com/nolan/40/000000/key.png'}}/>
         </View> */}
 
-        
+
 
         <View>
-        <TouchableOpacity style={styles.inputContainer} onPress={() => {
-          this.showDatepicker(true)
-        }} >
-          <Text style={styles.inputs}>{moment(this.state.selectedDate).format('YYYY-MM-DD')}</Text>
-          <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/key.png' }} />
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.inputContainer} onPress={() => {
+            this.showDatepicker(true)
+          }} >
+            <Text style={styles.inputs}>{moment(this.state.selectedDate).format('YYYY-MM-DD')}</Text>
+            <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/key.png' }} />
+          </TouchableOpacity>
         </View>
-        {this.state.isShowDate ===true ? (<DateTimePicker
-            testID="dateTimePicker"
-            value={this.state.selectedDate}
-            mode={'date'}
-            is24Hour={true}
-            display="default"
-            onChange={(e) => {
-              console.log("e adalah",e.nativeEvent.timestamp)
-              this.setState({selectedDate:e.nativeEvent.timestamp, isShowDate:false})
-              
-            }}
-            style={styles.inputs}
-          />):( <TouchableOpacity></TouchableOpacity>)}
-          
-          
-        
-        
+        {this.state.isShowDate === true ? (<DateTimePicker
+          testID="dateTimePicker"
+          value={this.state.selectedDate}
+          mode={'date'}
+          is24Hour={true}
+          display="default"
+          onChange={(e) => {
+            console.log("e adalah", e.nativeEvent.timestamp)
+            this.setState({ selectedDate: e.nativeEvent.timestamp, isShowDate: false })
+
+          }}
+          style={styles.inputs}
+        />) : (<TouchableOpacity></TouchableOpacity>)}
 
 
         <View style={styles.inputContainer}>
@@ -152,10 +171,10 @@ export default class InputMaterialScreen extends Component {
           <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/email.png' }} />
         </View>
 
-        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
+        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.handleCreate()}>
           <Text style={styles.loginText}>Submit</Text>
         </TouchableOpacity>
-
+        </ScrollView>
       </View>
     );
   }
@@ -182,7 +201,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderBottomWidth: 1,
     width: 300,
-    
+
     height: 45,
     marginBottom: 20,
     flexDirection: 'row',
@@ -201,7 +220,7 @@ const styles = StyleSheet.create({
   inputs: {
     height: 45,
     marginLeft: 16,
-    paddingTop:1,
+    paddingTop: 1,
     borderBottomColor: '#FFFFFF',
     flex: 1,
   },
@@ -263,5 +282,9 @@ const styles = StyleSheet.create({
   btnText: {
     color: "white",
     fontWeight: 'bold'
-  }
+  },
+  scrollView: {
+    // backgroundColor: 'white',
+    // marginHorizontal: 3,
+},
 });

@@ -22,7 +22,7 @@ class ProfileScreen extends Component {
           <View style={styles.headerContent}>
               <Image style={styles.avatar}  source={require('./asset/avatar.jpg')}/>
               <Text style={styles.name}>
-                John Doe
+                Ade Pamungkas
               </Text>
               
           </View>
@@ -30,15 +30,15 @@ class ProfileScreen extends Component {
 
         <View style={styles.profileDetail}>
           <View style={styles.detailContent}>
-            <Text style={styles.title}>Photos</Text>
-            <Text style={styles.count}>200</Text>
+            <Text style={styles.title}>Rank</Text>
+            <Text style={styles.count}>1</Text>
           </View>
           <View style={styles.detailContent}>
-            <Text style={styles.title}>Followers</Text>
-            <Text style={styles.count}>200</Text>
+            <Text style={styles.title}>Experience</Text>
+            <Text style={styles.count}>3 Years</Text>
           </View>
           <View style={styles.detailContent}>
-            <Text style={styles.title}>Following</Text>
+            <Text style={styles.title}>Reward</Text>
             <Text style={styles.count}>200</Text>
           </View>
         </View>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     
   },
   header:{
-    backgroundColor: "#00CED1",
+    backgroundColor: "#ff990d",
   },
   headerContent:{
     padding:30,
