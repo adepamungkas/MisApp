@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { Caption, DataTable, Title } from 'react-native-paper';
 import Service from './data/Service';
 import DateTimePicker from '@react-native-community/datetimepicker';
-
+import moment from 'moment';
 export default class InputMaterialScreen extends Component {
   constructor(props) {
     super(props);
@@ -118,12 +118,10 @@ export default class InputMaterialScreen extends Component {
         <TouchableOpacity style={styles.inputContainer} onPress={() => {
           this.showDatepicker(true)
         }} >
-          <Text style={styles.inputs}>Tanggal</Text>
-          <Image onPress={() => {
-          this.showDatepicker(true)
-        }}  style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/key.png' }} />
+          <Text style={styles.inputs}>{moment(this.state.selectedDate).format('YYYY-MM-DD')}</Text>
+          <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/key.png' }} />
         </TouchableOpacity>
-
+        </View>
         {this.state.isShowDate ===true ? (<DateTimePicker
             testID="dateTimePicker"
             value={this.state.selectedDate}
@@ -139,7 +137,7 @@ export default class InputMaterialScreen extends Component {
           />):( <TouchableOpacity></TouchableOpacity>)}
           
           
-        </View>
+        
         
 
 
@@ -184,6 +182,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderBottomWidth: 1,
     width: 300,
+    
     height: 45,
     marginBottom: 20,
     flexDirection: 'row',
@@ -202,6 +201,7 @@ const styles = StyleSheet.create({
   inputs: {
     height: 45,
     marginLeft: 16,
+    paddingTop:1,
     borderBottomColor: '#FFFFFF',
     flex: 1,
   },
