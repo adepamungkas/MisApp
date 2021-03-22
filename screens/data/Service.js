@@ -1,12 +1,25 @@
 import axios from 'axios';
 import * as CONST from '../../Constans';
+const moment = require('moment');
 const HEADERS = { 'Content-Type': 'application/json', accept: 'application/json' };
 class Service {
 
-    createMaterial = ( payload) => {
-        
+    createMaterial = (payload) => {
+
         let url = `${CONST.BASE_URL}materials/`;
-        return axios.post(url, payload, { headers: HEADERS })
+        var bodyFormData = new FormData();
+        bodyFormData.append('Date', moment(payload.Date).format());
+        bodyFormData.append('Name', payload.Name);
+        bodyFormData.append('IsBroken', payload.IsBroken);
+        bodyFormData.append('Size', payload.Size);
+        bodyFormData.append('Color', payload.Color);
+        bodyFormData.append('Type', payload.Type);
+        bodyFormData.append('Description', payload.Description);
+        bodyFormData.append('InputBy', payload.InputBy);
+        bodyFormData.append('Trademark', payload.Trademark);
+        bodyFormData.append('Vendor', payload.Vendor);
+        console.log("", moment(payload.Date).format())
+        return axios.post(url, bodyFormData, { headers: HEADERS })
             .then((result) => {
                 return result.data;
             })
@@ -33,8 +46,20 @@ class Service {
     }
 
     editMaterial = (id, payload) => {
+        var bodyFormData = new FormData();
+        bodyFormData.append('Date', moment(payload.Date).format());
+        bodyFormData.append('Name', payload.Name);
+        bodyFormData.append('IsBroken', payload.IsBroken);
+        bodyFormData.append('Size', payload.Size);
+        bodyFormData.append('Color', payload.Color);
+        bodyFormData.append('Type', payload.Type);
+        bodyFormData.append('Description', payload.Description);
+        bodyFormData.append('InputBy', payload.InputBy);
+        bodyFormData.append('Trademark', payload.Trademark);
+        bodyFormData.append('Vendor', payload.Vendor);
+
         let url = `${CONST.BASE_URL}materials/${id}`;
-        return axios.put(url, payload, { headers: HEADERS })
+        return axios.put(url, bodyFormData, { headers: HEADERS })
             .then((result) => {
                 return result.data;
             })
@@ -59,9 +84,9 @@ class Service {
             });
     }
 
-    
+
     getMaterials = (params) => {
-       
+
         let url = `${CONST.BASE_URL}materials/`;
 
         return axios.get(url, { headers: HEADERS })

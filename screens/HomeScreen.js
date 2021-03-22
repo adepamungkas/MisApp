@@ -45,14 +45,16 @@ class HomeScreen extends Component {
             // ]
 
             data: [
-                { id: 2, title: "Home", color: "#87CEEB",route:"Home", members: 6, image: "https://img.icons8.com/office/70/000000/home-page.png" },
-                { id: 1, title: "Profile", color: "#FF4500",route:"Profile", members: 8, image: "https://img.icons8.com/color/70/000000/name.png" },
-                { id: 6, title: "Material", color: "#00FFFF",route:"InputMaterial", members: 8, image: "https://img.icons8.com/dusk/70/000000/checklist.png" },
-                { id: 7, title: "Chart", color: "#20B2AA",route:"InputMaterial", members: 23, image: "https://img.icons8.com/dusk/70/000000/globe-earth.png" },
-                { id: 8, title: "Report", color: "#191970",route:"InputMaterial", members: 45, image: "https://img.icons8.com/color/70/000000/to-do.png" },
-                { id: 3, title: "Family Gathering",route:"InputMaterial", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/70/000000/family.png" },
-                { id: 4, title: "Users", color: "#FF69B4",route:"InputMaterial", members: 6, image: "https://img.icons8.com/color/70/000000/groups.png" },
-                { id: 5, title: "Training", color: "#00BFFF",route:"InputMaterial", members: 7, image: "https://img.icons8.com/color/70/000000/classroom.png" },
+                { id: 1, title: "Home", color: "#87CEEB",route:"Home", members: 6, image: "https://img.icons8.com/office/70/000000/home-page.png" },
+                { id: 2, title: "Material", color: "#00FFFF",route:"InputMaterial", members: 8, image: "https://img.icons8.com/dusk/70/000000/checklist.png" },
+                { id: 3, title: "Report", color: "#191970",route:"InputMaterial", members: 45, image: "https://img.icons8.com/color/70/000000/to-do.png" },
+                { id: 4, title: "Chart", color: "#20B2AA",route:"InputMaterial", members: 23, image: "https://img.icons8.com/dusk/70/000000/globe-earth.png" },
+                { id: 5, title: "Profile", color: "#FF4500",route:"Profile", members: 8, image: "https://img.icons8.com/color/70/000000/name.png" },
+                { id: 6, title: "Users", color: "#FF69B4",route:"InputMaterial", members: 6, image: "https://img.icons8.com/color/70/000000/groups.png" },
+                { id: 7, title: "Training", color: "#00BFFF",route:"InputMaterial", members: 7, image: "https://img.icons8.com/color/70/000000/classroom.png" },
+                { id: 8, title: "Family Gathering",route:"InputMaterial", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/70/000000/family.png" },
+               
+               
                 
                
             ],

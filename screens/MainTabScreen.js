@@ -117,9 +117,7 @@ export const HomeStackScreen = ({ navigation }) => (
 
 <HomeStack.Screen name="InputMaterial" component={InputMaterialScreen} options={{
       title: 'Input Material',
-      headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>
-      )
+     
     }} />
   </HomeStack.Navigator>
 );
