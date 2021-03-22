@@ -42,24 +42,27 @@ export default class ListMaterialScreen extends Component {
       return (
         <DataTable.Row key={index}>
           <DataTable.Cell>{item.Name}</DataTable.Cell>
-          <DataTable.Cell numeric>{item.Description}</DataTable.Cell>
-          <DataTable.Cell numeric>{item.Color}</DataTable.Cell>
+          <DataTable.Cell >{item.Color}</DataTable.Cell>
+          <DataTable.Cell >{item.Type}</DataTable.Cell>
+          <DataTable.Cell numeric >{item.Size}</DataTable.Cell>
         </DataTable.Row>
       );
     });
 
     return (
-      <View style={styles.container}>
-       
+      <ScrollView alwaysBounceHorizontal >
+      <View  style={styles.container} >
+         
         <DataTable>
           <DataTable.Header sortDirection='descending'>
             <DataTable.Title>Name</DataTable.Title>
-            <DataTable.Title numeric>Description</DataTable.Title>
-            <DataTable.Title numeric>Color</DataTable.Title>
+            <DataTable.Title >Color</DataTable.Title>
+            <DataTable.Title >Type</DataTable.Title>
+            <DataTable.Title numeric>Size</DataTable.Title>
           </DataTable.Header>
-          <ScrollView>
+          
             {items}
-          </ScrollView>
+          
           <DataTable.Pagination
             page={1}
             numberOfPages={5}
@@ -71,6 +74,7 @@ export default class ListMaterialScreen extends Component {
         </DataTable>
        
       </View>
+      </ScrollView>
     );
   }
 }

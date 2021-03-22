@@ -38,7 +38,7 @@ export function DrawerContent(props) {
                             />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
                                 <Title style={styles.title}>Ade Pamungkas</Title>
-                                <Caption style={styles.caption}>Active</Caption>
+                                <Caption style={styles.caption}>ade_pamungkas99</Caption>
                             </View>
                         </View>
 
@@ -48,8 +48,8 @@ export function DrawerContent(props) {
                                 <Caption style={styles.caption}>1234567</Caption>
                             </View>
                             <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>100</Paragraph>
-                                <Caption style={styles.caption}>Rank</Caption>
+                                <Paragraph style={[styles.paragraph, styles.caption]}>Status</Paragraph>
+                                <Caption style={styles.caption}>Active</Caption>
                             </View>
                         </View>
                     </View>

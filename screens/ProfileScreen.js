@@ -30,16 +30,16 @@ class ProfileScreen extends Component {
 
         <View style={styles.profileDetail}>
           <View style={styles.detailContent}>
-            <Text style={styles.title}>Rank</Text>
-            <Text style={styles.count}>1</Text>
+            <Text style={styles.title}>NIK</Text>
+            <Text style={styles.count}>12345</Text>
           </View>
           <View style={styles.detailContent}>
-            <Text style={styles.title}>Experience</Text>
-            <Text style={styles.count}>3 Years</Text>
+            <Text style={styles.title}>Username</Text>
+            <Text style={styles.count}>ade_pamungkas99</Text>
           </View>
           <View style={styles.detailContent}>
-            <Text style={styles.title}>Reward</Text>
-            <Text style={styles.count}>200</Text>
+            <Text style={styles.title}>Status</Text>
+            <Text style={styles.count}>Active</Text>
           </View>
         </View>
 

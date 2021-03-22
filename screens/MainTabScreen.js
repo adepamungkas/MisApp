@@ -110,9 +110,9 @@ export const HomeStackScreen = ({ navigation }) => (
     }} />
     <HomeStack.Screen name="ListMaterial" component={ListMaterialScreen} options={{
       title: 'List Material',
-      headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>
-      )
+      // headerLeft: () => (
+      //   <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>
+      // )
     }} />
 
 <HomeStack.Screen name="InputMaterial" component={InputMaterialScreen} options={{
@@ -133,7 +133,7 @@ export const NotificationStackScreen = ({ navigation }) => (
       fontWeight: 'bold'
     }
   }}>
-    <NotificationStack.Screen name="Details" component={DetailsScreen} options={{
+    <NotificationStack.Screen name="Notification" component={DetailsScreen} options={{
       headerLeft: () => (
         <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
