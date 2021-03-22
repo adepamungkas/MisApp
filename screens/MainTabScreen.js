@@ -126,7 +126,7 @@ export const HomeStackScreen = ({ navigation }) => (
 
 export const NotificationStackScreen = ({ navigation }) => (
   <NotificationStack.Navigator screenOptions={{
-    initialRouteName: "Details",
+    initialRouteName: "Notification",
     headerStyle: {
       backgroundColor: '#009387',
     },
