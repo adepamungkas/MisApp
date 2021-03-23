@@ -151,16 +151,6 @@ export default class InputMaterialScreen extends Component {
 
           </View>
 
-          {/* <View style={styles.inputContainer}>
-          <TextInput style={styles.inputs}
-              placeholder="Password"
-              secureTextEntry={true}
-              underlineColorAndroid='transparent'
-              onChangeText={(password) => this.setState({password})}/>
-          <Image style={styles.inputIcon} source={{uri: 'https://img.icons8.com/nolan/40/000000/key.png'}}/>
-        </View> */}
-
-
           <Text>Date</Text>
           <View>
             <TouchableOpacity style={styles.inputContainer} onPress={() => {
@@ -231,8 +221,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    //  alignItems: 'center',
-    // backgroundColor: '#DCDCDC',
     marginLeft: 10,
     marginRight: 10,
   },
@@ -247,9 +235,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 5,
     borderBottomWidth: 1,
-    // width: 300,
-
-    // height: 45,
     marginBottom: 10,
     marginTop: 10,
     flexDirection: 'row',

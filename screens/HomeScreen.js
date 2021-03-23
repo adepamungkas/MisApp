@@ -6,15 +6,7 @@ import {
 } from 'react-native';
 import { Card, Badge, Banner, Divider, List } from 'react-native-paper';
 import React, { Component } from 'react';
-import {
-    getBranchName,
-    getRating_score,
-    getFacilities,
-    getPrice_min,
-    getPrice_max,
-    getOperational_hours
-} from './data/MockDataAPI';
-import Icon from 'react-native-vector-icons/Ionicons';
+
 
 var { width, height } = Dimensions.get('window');
 
@@ -29,12 +21,12 @@ class HomeScreen extends Component {
                 // { id: 1, title: "Home", color: "#87CEEB",route:"Home", members: 6, image: "https://img.icons8.com/color/48/000000/home.png" },
                 { id: 1, title: "Material", color: "#00FFFF",route:"InputMaterial", members: 8, image: "https://img.icons8.com/dusk/70/000000/checklist.png" },
                 { id: 2, title: "Report", color: "#191970",route:"ListMaterial", members: 45, image: "https://img.icons8.com/color/70/000000/to-do.png" },
-                { id: 3, title: "Chart", color: "#20B2AA",route:"InputMaterial", members: 23, image: "https://img.icons8.com/color/100/000000/picture.png" },
+                { id: 3, title: "Chart", color: "#20B2AA",route:"Catalog", members: 23, image: "https://img.icons8.com/color/100/000000/picture.png" },
                 { id: 4, title: "Profile", color: "#FF4500",route:"Profile", members: 8, image: "https://img.icons8.com/color/70/000000/name.png" },
-                { id: 5, title: "News",route:"InputMaterial", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/48/000000/news.png" },
-                { id: 6, title: "Suggestion Box",route:"InputMaterial", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/48/000000/idea.png" },
+                { id: 5, title: "News",route:"News", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/48/000000/news.png" },
+                { id: 6, title: "Suggestion Box",route:"SuggestionBox", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/48/000000/idea.png" },
                 { id: 7, title: "Users", color: "#FF69B4",route:"InputMaterial", members: 6, image: "https://img.icons8.com/color/70/000000/groups.png" },
-                { id: 8, title: "Training", color: "#00BFFF",route:"InputMaterial", members: 7, image: "https://img.icons8.com/color/70/000000/classroom.png" },
+                { id: 8, title: "Training", color: "#00BFFF",route:"News", members: 7, image: "https://img.icons8.com/color/70/000000/classroom.png" },
                
             ],
             
@@ -74,128 +66,6 @@ class HomeScreen extends Component {
                             )
                         }} />
 
-
-
-                    {/* <Card>
-                        <Card.Cover source={require('./asset/sample-house.png')}/>
-                    </Card>
-                    <Text style={styles.headerText}>
-                        {this.state.branchName}
-                    </Text>
-
-
-                    <Divider style={styles.divider}/>
-                    <View style={styles.rateScore}>
-                        <Badge
-                            style={styles.badge}>Rating: {this.state.rating}</Badge>
-                    </View>
-                    <Divider style={styles.divider}/>
-                    <View style={styles.titleText}>
-                        <View>
-                            <Text style={styles.titleText}>Jam Operasional</Text>
-                        </View>
-                                {this.state.operational_hours.map((item) => {
-                                    var hari
-
-                                    switch (item.day) {
-                                        case 0:
-                                            hari="minggu"
-                                            break;
-                                        case 1:
-                                            hari="Senin"
-                                            break;
-                                        case 2:
-                                            hari="Selasa"
-                                            break;
-                                        case 3:
-                                            hari="Rabu"
-                                            break;
-                                        case 4:
-                                            hari="Kamis"
-                                            break;
-                                        case 5:
-                                            hari="Jumat"
-                                            break;
-                                        case 6:
-                                            hari="Sabtu"
-                                    }
-                                    return (
-                                        <Text key={item.id}>
-                                            {hari} : {item.hour_start} WIB - {item.hour_end} WIB </Text>
-
-                                    );
-                                })}
-
-
-
-                    </View>
-                    <Divider style={styles.divider}/>
-                    <View style={styles.fixToText}>
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={() => Alert.alert('Left button pressed')}
-                        >
-                            <Text style={styles.titleText}>Tentang</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={() => Alert.alert('Left button pressed')}
-                        >
-                            <Text style={styles.titleText}>Menu</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={() => Alert.alert('Left button pressed')}
-                        >
-                            <Text style={styles.titleText}>Ulasan</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <Divider style={styles.divider}/>
-                    <View style={styles.caption}>
-                        <Text>Rata-Rata Harga</Text>
-
-                    </View>
-                    <View style={styles.text}>
-                        <Text>Rp. {this.state.priceMin} - Rp. {this.state.priceMax}</Text>
-
-                    </View>
-                    <Divider style={styles.divider}/>
-                    <View style={styles.caption}>
-                        <Text>Facilitas</Text>
-                    </View>
-                    <View style={styles.facilityMenu}>
-
-                        {this.state.facilities.map((item) => {
-                            return (
-
-                                <TouchableOpacity
-                                    style={styles.button}
-                                    onPress={() => Alert.alert('Left button pressed')}
-                                    key={item.id}
-                                >
-                                    <Image source={{uri: `${item.image_url}`}} style={{width: 20, height: 20}}/>
-
-                                </TouchableOpacity>
-                            );
-                        })}
-                    </View>
-                    <Divider style={styles.divider}/>
-                    <Text style={styles.text}>
-                        Masuk ke halaman "My Booking" dan pilih Deals yang ada pada "Upcoming Booking"
-
-                    </Text>
-                    <Text style={styles.text}>
-                        Buka dan perlihatkan Booking Code kamu kepada staff restoran.
-
-                    </Text>
-                    <Text style={styles.text}>
-                        Hanya berlaku terhadap timeslot yang ada dan produk yang telah dipesan.
-
-                    </Text>
-                    <Text style={styles.text}>
-                        User harus hadir pada saat redemption
-                    </Text> */}
-                {/* </ScrollView> */}
             </SafeAreaView>
         );
     }

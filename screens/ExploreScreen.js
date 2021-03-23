@@ -16,16 +16,17 @@ export default class ExploreScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      keyword:"",
       data: [
-        {id:1, icon:"https://img.icons8.com/color/70/000000/cottage.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"},
-        {id:2, icon:"https://img.icons8.com/color/70/000000/administrator-male.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
-        {id:3, icon:"https://img.icons8.com/color/70/000000/filled-like.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
-        {id:4, icon:"https://img.icons8.com/color/70/000000/facebook-like.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
-        {id:5, icon:"https://img.icons8.com/color/70/000000/shutdown.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
-        {id:6, icon:"https://img.icons8.com/color/70/000000/traffic-jam.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
-        {id:7, icon:"https://img.icons8.com/dusk/70/000000/visual-game-boy.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
+        {id:1, icon:"https://img.icons8.com/fluent/48/000000/big-parcel.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"},
+        {id:2, icon:"https://img.icons8.com/fluent/48/000000/food.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
+        {id:3, icon:"https://img.icons8.com/fluent/48/000000/kitchenwares.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
+        {id:4, icon:"https://img.icons8.com/fluent/48/000000/souvenirs.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
+        {id:5, icon:"https://img.icons8.com/fluent/48/000000/fruit-bag.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
+        {id:6, icon:"https://img.icons8.com/fluent/48/000000/oat-milk.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
+        {id:7, icon:"https://img.icons8.com/fluent/48/000000/teaser.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"}, 
         {id:8, icon:"https://img.icons8.com/flat_round/70/000000/cow.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"},
-        {id:9, icon:"https://img.icons8.com/color/70/000000/coworking.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"},
+        {id:9, icon:"https://img.icons8.com/fluent/48/000000/cola.png", description: "Lorem ipsum dolor sit amet, indu consectetur adipiscing elit"},
       ],
     };
   }
@@ -43,12 +44,14 @@ export default class ExploreScreen extends Component {
             <TextInput style={styles.inputs}
                 ref={'txtPassword'}
                 placeholder="Search"
+                value={this.state.keyword}
                 underlineColorAndroid='transparent'
-                onChangeText={(name_address) => this.setState({name_address})}/>
+                onChangeText={(keyword) => this.setState({keyword})}/>
           </View>
 
-          <TouchableHighlight style={styles.saveButton} onPress={() => this.clickEventListener('search')}>
-            <Image style={[styles.icon, styles.iconBtnSearch]} source={{uri: 'https://img.icons8.com/search/androidL/100/ffffff'}}/>
+          <TouchableHighlight style={styles.saveButton} onPress={() => this.onClickListener('search')}>
+           
+            <Image style={[styles.icon, styles.iconBtnSearch]} source={{uri: 'https://img.icons8.com/fluent/48/000000/search.png'}}/>
           </TouchableHighlight>
         </View>
 
@@ -77,12 +80,12 @@ const styles = StyleSheet.create({
   },
   formContent:{
     flexDirection: 'row',
-    marginTop:30,
+    marginTop:10,
   },
   inputContainer: {
       borderBottomColor: '#F5FCFF',
       backgroundColor: '#FFFFFF',
-      borderRadius:30,
+      borderRadius:10,
       borderBottomWidth: 1,
       height:45,
       flexDirection: 'row',
@@ -114,14 +117,13 @@ const styles = StyleSheet.create({
     margin:10,
     width:70,
     alignSelf: 'flex-end',
-    backgroundColor: '#40E0D0',
-    borderRadius:30,
+    backgroundColor: '#F3F7F9',
+    borderRadius:10,
   },
   saveButtonText: {
     color: 'white',
   },
   notificationList:{
-    marginTop:20,
     padding:10,
   },
   notificationBox: {
@@ -137,8 +139,9 @@ const styles = StyleSheet.create({
     height:45,
   },
   description:{
-    fontSize:18,
+    fontSize:14,
     color: "#3498db",
+    padding:5,
     marginLeft:10,
   },
 });

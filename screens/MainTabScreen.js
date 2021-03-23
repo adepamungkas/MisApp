@@ -6,14 +6,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import BannerScreen from './BannerScreen';
+import CatalogScreen from './CatalogScreen';
 import DetailsScreen from './DetailsScreen';
 import ExploreScreen from './ExploreScreen';
 import HomeScreen from './HomeScreen';
 import ListMaterialScreen from './ListMaterialScreen';
 import InputMaterialScreen from './InputMaterialScreen';
+import NewsScreen from './NewsScreen';
 import ProfileScreen from './ProfileScreen';
 import SettingScreen from './SettingScreen';
 import SupportScreen from './SupportScreen';
+import SuggestionBoxScreen from './SuggestionBoxScreen'
 
 
 const AccountStack = createStackNavigator();
@@ -78,7 +81,7 @@ const MainTabScreen = () => (
       }}
     />
 
-    
+
   </Tab.Navigator>
 );
 
@@ -110,14 +113,31 @@ export const HomeStackScreen = ({ navigation }) => (
     }} />
     <HomeStack.Screen name="ListMaterial" component={ListMaterialScreen} options={{
       title: 'List Material',
-      // headerLeft: () => (
-      //   <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>
-      // )
+     
     }} />
 
-<HomeStack.Screen name="InputMaterial" component={InputMaterialScreen} options={{
+    <HomeStack.Screen name="InputMaterial" component={InputMaterialScreen} options={{
       title: 'Input Material',
-     
+
+    }} />
+
+    <HomeStack.Screen name="News" component={NewsScreen} options={{
+      title: 'News',
+
+    }} />
+    <HomeStack.Screen name="Catalog" component={CatalogScreen} options={{
+      title: 'Catalog',
+
+    }} />
+
+<HomeStack.Screen name="SuggestionBox" component={SuggestionBoxScreen} options={{
+      title: 'SuggestionBox',
+
+    }} />
+
+<HomeStack.Screen name="Profile" component={ProfileScreen} options={{
+      title: 'Profile',
+
     }} />
   </HomeStack.Navigator>
 );
