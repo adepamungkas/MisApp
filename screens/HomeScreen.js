@@ -21,7 +21,7 @@ class HomeScreen extends Component {
                 // { id: 1, title: "Home", color: "#87CEEB",route:"Home", members: 6, image: "https://img.icons8.com/color/48/000000/home.png" },
                 { id: 1, title: "Material", color: "#00FFFF",route:"InputMaterial", members: 8, image: "https://img.icons8.com/dusk/70/000000/checklist.png" },
                 { id: 2, title: "Report", color: "#191970",route:"ListMaterial", members: 45, image: "https://img.icons8.com/color/70/000000/to-do.png" },
-                { id: 3, title: "Chart", color: "#20B2AA",route:"Catalog", members: 23, image: "https://img.icons8.com/color/100/000000/picture.png" },
+                { id: 3, title: "Catalog", color: "#20B2AA",route:"Catalog", members: 23, image: "https://img.icons8.com/color/100/000000/picture.png" },
                 { id: 4, title: "Profile", color: "#FF4500",route:"Profile", members: 8, image: "https://img.icons8.com/color/70/000000/name.png" },
                 { id: 5, title: "News",route:"News", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/48/000000/news.png" },
                 { id: 6, title: "Suggestion Box",route:"SuggestionBox", color: "#6A5ACD", members: 5, image: "https://img.icons8.com/color/48/000000/idea.png" },

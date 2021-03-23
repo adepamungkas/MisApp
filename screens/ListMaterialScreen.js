@@ -69,7 +69,7 @@ export default class ListMaterialScreen extends Component {
             onPageChange={page => {
               console.log(page);
             }}
-            label="1-2 of 6"
+            // label="1-2 of 6"
           />
         </DataTable>
        
