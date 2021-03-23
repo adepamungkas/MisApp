@@ -1,7 +1,7 @@
 # MisApp
 Material Information System
-[Login](https://github.com/adepamungkas/MisApp/blob/master/screenshoot/login.jpg)
-[Dashboard](https://github.com/adepamungkas/MisApp/blob/master/screenshoot/dashborad.jpg)
+![Login](https://github.com/adepamungkas/MisApp/blob/master/screenshoot/login.jpg)
+![Dashboard](https://github.com/adepamungkas/MisApp/blob/master/screenshoot/dashborad.jpg)
 [Login](https://github.com/adepamungkas/MisApp/blob/master/screenshoot/allert.jpg)
 [Drawer](https://github.com/adepamungkas/MisApp/blob/master/screenshoot/drawer-nav.jpg)
 [Datatable](https://github.com/adepamungkas/MisApp/blob/master/screenshoot/datatable.jpg)
